@@ -3,7 +3,7 @@ title: "Mengenal Smart Contract: Fondasi Web3 Modern"
 date: "2024-06-25"
 author: "bcc-ukdw"
 authorName: "BCC UKDW"
-authorAvatar: "https://avatars.githubusercontent.com/u/bcc-ukdw"
+authorAvatar: "https://admin.bccukdw.xyz/Icon.svg"
 category: "Tutorial"
 tags: ["ethereum", "solidity", "smart-contract", "web3"]
 excerpt: "Smart contract adalah program yang berjalan otomatis di blockchain tanpa perantara. Artikel ini menjelaskan konsep dasar, cara kerja, dan contoh implementasi di Ethereum."
