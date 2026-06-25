@@ -3,7 +3,7 @@ title: "Mengenal Smart Contract: Fondasi Web3 Modern"
 date: "2024-06-25"
 author: "bcc-ukdw"
 authorName: "BCC UKDW"
-authorAvatar: "https://admin.bccukdw.xyz/Icon.svg"
+authorAvatar: "https://www.bccukdw.xyz/Icon.svg"
 category: "Tutorial"
 tags: ["ethereum", "solidity", "smart-contract", "web3"]
 excerpt: "Smart contract adalah program yang berjalan otomatis di blockchain tanpa perantara. Artikel ini menjelaskan konsep dasar, cara kerja, dan contoh implementasi di Ethereum."
@@ -25,6 +25,7 @@ Smart contract bekerja dengan prinsip sederhana:
 > **"Jika kondisi X terpenuhi, maka eksekusi aksi Y."**
 
 Misalnya:
+
 - Jika pembeli mentransfer 1 ETH → kirim NFT ke alamat pembeli
 - Jika voting mencapai quorum → eksekusi proposal DAO
 - Jika harga token turun di bawah threshold → likuidasi posisi
@@ -68,13 +69,13 @@ contract Greeter {
 
 ### Penjelasan baris per baris
 
-| Baris | Penjelasan |
-|-------|-----------|
-| `pragma solidity ^0.8.20` | Versi Solidity yang digunakan |
-| `contract Greeter` | Mendefinisikan smart contract bernama Greeter |
-| `string private greeting` | Variabel state yang tersimpan di blockchain |
-| `constructor` | Fungsi yang dijalankan satu kali saat deploy |
-| `public view` | Fungsi bisa dibaca siapa saja, tidak mengubah state |
+| Baris                     | Penjelasan                                          |
+| ------------------------- | --------------------------------------------------- |
+| `pragma solidity ^0.8.20` | Versi Solidity yang digunakan                       |
+| `contract Greeter`        | Mendefinisikan smart contract bernama Greeter       |
+| `string private greeting` | Variabel state yang tersimpan di blockchain         |
+| `constructor`             | Fungsi yang dijalankan satu kali saat deploy        |
+| `public view`             | Fungsi bisa dibaca siapa saja, tidak mengubah state |
 
 ---
 
@@ -111,6 +112,7 @@ contract SimpleBank {
 ```
 
 Contract di atas mengimplementasikan bank sederhana:
+
 - **deposit()** — kirim ETH ke contract, saldo tercatat
 - **withdraw()** — tarik ETH, validasi saldo dulu
 - **getBalance()** — cek saldo milik sender
@@ -120,15 +122,19 @@ Contract di atas mengimplementasikan bank sederhana:
 ## Keunggulan Smart Contract
 
 ### 1. Trustless
+
 Tidak perlu percaya pada pihak ketiga. Kodenya transparan dan bisa diaudit siapa saja di blockchain explorer seperti [Etherscan](https://etherscan.io).
 
 ### 2. Immutable (setelah deploy)
+
 Setelah di-deploy, kode tidak bisa diubah. Ini memastikan aturan tidak bisa dimanipulasi secara sepihak.
 
 ### 3. Otomatis
+
 Tidak perlu ada yang "menjalankan" secara manual. Begitu kondisi terpenuhi, eksekusi terjadi otomatis.
 
 ### 4. Efisien
+
 Tidak ada biaya intermediary. Hanya gas fee untuk komputasi di jaringan Ethereum.
 
 ---
