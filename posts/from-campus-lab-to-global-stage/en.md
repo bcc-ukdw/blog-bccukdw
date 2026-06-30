@@ -107,7 +107,7 @@ If you are a protocol, company, or community that wants to reach serious student
 
 Follow the journey:
 
-- LinkedIn: [BCC UKDW](https://linkedin.com/company/ukdwbcc)
+- LinkedIn: [BCC UKDW](https://www.linkedin.com/company/bccukdw)
 - X: [@bcc_ukdw](https://x.com/bcc_ukdw)
 - Instagram: [@dutawacana.web3](https://instagram.com/dutawacana.web3)
 - Threads: [@dutawacana.web3](https://threads.com/@dutawacana.web3)

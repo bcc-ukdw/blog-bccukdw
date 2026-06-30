@@ -108,7 +108,7 @@ BCC UKDW 还很年轻。现在的目标，是把一段连胜变成一条管线�
 
 关注我们的旅程：
 
-- LinkedIn：[BCC UKDW](https://linkedin.com/company/ukdwbcc)
+- LinkedIn：[BCC UKDW](https://www.linkedin.com/company/bccukdw)
 - X：[@bcc_ukdw](https://x.com/bcc_ukdw)
 - Instagram：[@dutawacana.web3](https://instagram.com/dutawacana.web3)
 - Threads：[@dutawacana.web3](https://threads.com/@dutawacana.web3)

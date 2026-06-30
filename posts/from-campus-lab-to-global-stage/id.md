@@ -107,7 +107,7 @@ Jika kamu sebuah protokol, perusahaan, atau komunitas yang ingin menjangkau stud
 
 Ikuti perjalanannya:
 
-- LinkedIn: [BCC UKDW](https://linkedin.com/company/ukdwbcc)
+- LinkedIn: [BCC UKDW](https://www.linkedin.com/company/bccukdw)
 - X: [@bcc_ukdw](https://x.com/bcc_ukdw)
 - Instagram: [@dutawacana.web3](https://instagram.com/dutawacana.web3)
 - Threads: [@dutawacana.web3](https://threads.com/@dutawacana.web3)
