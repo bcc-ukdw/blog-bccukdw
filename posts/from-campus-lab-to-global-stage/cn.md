@@ -1,0 +1,116 @@
+---
+title: "从校园实验室到全球舞台：我们如何在 8 个月内打造 BCC UKDW"
+date: "2026-06-04"
+author: "yeheskieltame"
+authorName: "Yeheskiel Yunus Tame"
+authorAvatar: "https://github.com/yeheskieltame.png"
+category: "Story"
+tags: ["bcc-ukdw", "hackathon", "web3", "founder-story", "indonesia"]
+excerpt: "Blockchain Club UKDW 如何从日惹的一间校园实验室出发，在短短 8 个月内拿下 21 个全球黑客松领奖台名次、5 个冠军，以及超过 35,000 美元奖金。"
+cover: "https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/01-cover-article.png"
+readTime: 6
+---
+
+2026 年 2 月 10 日，我们挤在一块屏幕前，看着来自香港的直播。
+
+那是 Mantle Global Hackathon 的获奖公布：历时五个月的比赛，来自世界各地超过 2,000 名开发者参与，作为 Consensus 香港活动的一部分现场直播。
+
+然后主持人念了出来。GameFi 赛道第一名：OwnaFarm。我们的项目。8,000 美元。
+
+要理解那一刻的意义，你得先看看五个月前这个房间的样子。
+
+![2026 年 2 月 10 日。公布到来的那个夜晚。](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/livestreaming-mantle.jpg)
+*2026 年 2 月 10 日。公布到来的那个夜晚。*
+
+## 五个月前：一间实验室和满满的质疑
+
+起初并没有宏大的愿景。只是日惹达塔瓦卡纳基督教大学（UKDW）的一间校园实验室，我们几个人下课后聚在那里聊技术。
+
+我不断把话题引向一个方向：web3。校园里几乎没人在做这个。对我来说，这不是危险信号，而是一扇敞开的门。于是我开始邀请朋友们一起学习。没有课程大纲，没有预算，只有好奇心。
+
+2025 年 9 月 29 日，我们正式成立。Blockchain Club UKDW（BCC UKDW）诞生了。
+
+![一切开始的地方：实验室。](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/suasana-lab.jpg)
+*一切开始的地方：实验室。*
+
+质疑来得很快，而且不无道理。Web3 太新了。没有成熟的路径。还有，是谁在带这个？一个从没运营过组织、在这个领域零战绩的人。
+
+每一条质疑都成立。我无法靠争辩摆脱它们。也正是那时，我学会了如今奉行的准则：你无法索求别人的相信，你只能拿出凭证。
+
+## 没人看见的苦干
+
+2025 年 10 月，Mantle Global Hackathon 开赛。这是一场为期五个月的国际线上比赛，我和实验室的两位朋友 Nicholas、Oktavianus 组队。我们默默地全力以赴。
+
+我们的项目 OwnaFarm 从家乡的真实问题切入。手握有效合同的农民，在等待付款期间仍被现金流卡住。我们把他们的应收账款代币化，变成游戏内资产，让投资者通过一款游戏为真实农业提供资金，而农民则更快获得营运资金。
+
+与此同时，俱乐部也没有停下脚步。2025 年 12 月，我们举办了第一场大型活动——与 UGM 区块链社区合作的 Base Campus。一个成立仅数月的俱乐部，站在一个更大、更资深的社区旁边，并且毫不逊色。1 月，我们又联合 BlockDev 社区举办了研讨会和工作坊。最初的成果也开始陆续到来：Base 全球黑客松 Top 50 入围，以及 Arbitrum APAC Mini Hackathon 的入围名次。
+
+![与 UGM 区块链社区合作的 Base Campus，2025 年 12 月。](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/base-campus.jpeg)
+*与 UGM 区块链社区合作的 Base Campus，2025 年 12 月。*
+
+势头不错。但还没有一座可以指着说"看"的奖杯。
+
+## 2026 年 2 月：一切翻转的月份
+
+然后，直播来了。
+
+GameFi 第一名甚至还不是故事的全部。同一个晚上，Oktavianus 的个人项目 zkPull 拿下 ZK & Privacy 赛道第二名。两个领奖台名次、合计 13,000 美元，在全球舞台上公布——而这个校园俱乐部，五个月前还被人当作笑话。
+
+而 2 月还在继续给予。Predictly 在 Movement M1 Hackathon 上赢得 Best DeFi App。我们在 Hedera 的 Hello Future Ascension 黑客松上的两个项目 OneSafeBet 和 deQuest，都进入了 DeFi 中级赛道的前三名。
+
+整个团队的心态翻转了。一场胜利可以被当成运气，但一个月内五个领奖台名次就是一种规律。每个人心里那句没说出口的话，从"这大概行不通"变成了"为什么不能是我们？"
+
+## 雪崩
+
+随后发生的一切证明了这一点。在接下来的几个月里，我以 Tessera 在 Synthesis Hackathon（一场由 AI agent 评审的线上比赛）中拿到个人第一名。我们的成员继续累积战绩：Chainlink CRE 黑客松第一名、Synthesis Lido 赛道第一名、UniCode（ETHGlobal 为 Uniswap 举办的社区黑客松）第二名、Somnia Top 10，以及 X Layer、Walrus Sessions 和 Monad Blitz Jogja 的领奖台名次，外加 Celo Proof of Ship 的每月开发者奖励。
+
+随后在 4 月，日惹被选为 Coinvestasi 的 Web3 University Tour 2026 的第一站，在我们的校园举办，并联合 Binance Academy 与 BNB Chain，现场有数百名学生。那个从实验室起步的俱乐部，已经成了行业主动找上门来的理由。
+
+![Web3 University Tour 2026，第一站：我们的校园。](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/coinvestasi.jpg)
+*Web3 University Tour 2026，第一站：我们的校园。*
+
+成立八个月后，记分板上写着：21 个领奖台与入围成绩、5 个冠军、超过 15 个全球生态、以及超过 35,000 美元的总奖金。
+
+![成果报告，运转八个月。](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/03-scoreboard.png)
+*成果报告，运转八个月。*
+
+从实验室里的一次闲聊开始。就在一个学年之内。
+
+![建设日志，2025 年 9 月至 2026 年 6 月。](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/02-timeline.png)
+*建设日志，2025 年 9 月至 2026 年 6 月。*
+
+## 胜利不是终点线
+
+这是我最自豪的部分：公布之后，各个团队仍在继续建设。
+
+![七面旗帜，七支仍在发货的团队。](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/from-campus-lab-to-global-stage/images/04-projects-banner-official.jpeg)
+*七面旗帜，七支仍在发货的团队。*
+
+OwnaFarm、Trickle、Nuvia、ClaudeLance 和 Tirai 如今都在积极开发中，还有我们成员的更新项目，比如 zer0Gig 和 Circlo。有些已经在主网上线。对我们来说，黑客松的胜利不是摆在架子上的奖杯，而是一个信号：这个产品值得存在。
+
+在 X 上关注他们的进展：[OwnaFarm](https://x.com/Owna_Farm_ID)、[Trickle](https://x.com/0xTrickle)、[zer0Gig](https://x.com/zer0Gig)、[Nuvia](https://x.com/NuviaFinance)、[ClaudeLance](https://x.com/Claudelanc0x)、[Circlo](https://x.com/circlo_celo)，以及 [Tirai](https://x.com/tiraiFrontier)。
+
+## 我想对每一位学生创业者说的话
+
+1. **可信度是用凭证买来的，不是用承诺。** 没人欠我一份相信，也没人欠你。先行一步，把一个结果摆上桌，让它替你说话。
+
+2. **悄悄地、并行地打造你的凭证。** 我们同时建设俱乐部和那个获奖项目。质疑不必立刻回应，它需要被结果打断。
+
+3. **一场胜利会重塑一个群体的心态，而一个全胜的月份会终结"侥幸论"。** 在 2 月之前，每一次努力都像一场赌博；之后，每一次努力都像一次训练。
+
+4. **通过合作借势。** 站在 UGM 社区、BlockDev 和 Coinvestasi 旁边，让一个成立仅数月的俱乐部表现远超其量级。你不需要许可才能同台，只需要带上真正拿得出手的东西。
+
+## 接下来
+
+BCC UKDW 还很年轻。现在的目标，是把一段连胜变成一条管线：更多的开发者、更多落地的产品，以及更多在全球 web3 舞台上竞争并获胜的印尼学生。
+
+如果你是一个协议、公司或社区，想要触达印尼认真的学生开发者，我的私信随时开放。
+
+关注我们的旅程：
+
+- LinkedIn：[BCC UKDW](https://linkedin.com/company/ukdwbcc)
+- X：[@bcc_ukdw](https://x.com/bcc_ukdw)
+- Instagram：[@dutawacana.web3](https://instagram.com/dutawacana.web3)
+- Threads：[@dutawacana.web3](https://threads.com/@dutawacana.web3)
+
+如果此刻你正是某间校园实验室里的一名学生，怀着一个所有人都质疑的想法：别再争辩了。去打造你的凭证吧。那个房间会改变的。
