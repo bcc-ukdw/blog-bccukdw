@@ -8,6 +8,7 @@ category: "Blockchain"
 tags: ["web3", "blockchain", "tutorial"]
 excerpt: "A short 1-2 sentence summary of what this post covers."
 cover: "https://images.unsplash.com/photo-XXXXXXX?w=1200"
+# readTime: auto-calculated — leave it out. Read README.md before you start.
 ---
 
 ## Introduction
@@ -32,6 +33,13 @@ console.log(example);
 More content.
 
 > Blockquote if needed.
+
+### Adding images
+
+Store image files in this article's `images/` folder, then reference them with an **absolute URL**
+(relative paths will NOT work — see README.md). Replace `article-slug` with your article's folder name:
+
+![Descriptive alt text](https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/article-slug/images/example.png)
 
 ## Conclusion
 
