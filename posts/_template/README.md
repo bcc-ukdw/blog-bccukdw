@@ -2,6 +2,8 @@
 
 Cara menulis artikel untuk [blog.bccukdw.xyz](https://blog.bccukdw.xyz). Baca sekali, lalu copy folder `_template/` jadi titik mulai.
 
+> 🤖 **Pakai AI assistant (Claude Code, Cursor, Codex, dll)?** AI-mu otomatis tau alur ini dari `CLAUDE.md` / `AGENTS.md` di root repo, plus skill terstruktur di [`.claude/skills/contribute-blog-post/`](../../.claude/skills/contribute-blog-post/SKILL.md). Cukup bilang *"bantu aku nulis & submit artikel blog BCC UKDW"* — sisanya (3 bahasa, URL gambar absolut, PR ke `main`) dia yang urus.
+
 ---
 
 ## 1. Struktur folder
