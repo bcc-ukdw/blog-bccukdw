@@ -7,7 +7,7 @@ authorAvatar: "https://github.com/Shenhan01-sys.png"
 category: "区块链"
 tags: ["rwa", "代币化", "分销", "链上金融", "mantle", "defi"]
 excerpt: "真实世界资产代币化已成数十亿美元市场，但头条数字混淆了发行与分销。全球最大的单一 RWA 不可移动，多数代币闲置不动，而分销层是你无法买下的唯一护城河。一篇为 Mantle 研究挑战赛撰写的研究笔记。"
-cover: "https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/issuance-won-distribution-hasnt-started/images/fig1_distributed_vs_represented.png"
+cover: "https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/issuance-won-distribution-hasnt-started/images/cover.jpg"
 readTime: 13
 ---
 
