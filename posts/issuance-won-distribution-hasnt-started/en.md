@@ -7,7 +7,7 @@ authorAvatar: "https://github.com/Shenhan01-sys.png"
 category: "Blockchain"
 tags: ["rwa", "tokenization", "distribution", "onchain-finance", "mantle", "defi"]
 excerpt: "Tokenized real-world assets are a multi-billion-dollar market, yet headline figures conflate issuance with distribution. The largest single RWA on Earth is non-movable, most tokens sit idle, and the distribution layer is the one moat you cannot buy. A research note for the Mantle Research Challenge."
-cover: "https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/issuance-won-distribution-hasnt-started/images/fig1_distributed_vs_represented.png"
+cover: "https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/issuance-won-distribution-hasnt-started/images/cover.jpg"
 ---
 
 > A research note on the gap between tokenized-asset issuance and global distribution — and why the distribution layer is the one moat you cannot buy. Submission for the Mantle Research Challenge. July 2026.
