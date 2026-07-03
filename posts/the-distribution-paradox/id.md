@@ -116,7 +116,7 @@ Kesenjangan distribusi menjadi lebih jelas ketika dibandingkan dengan Solana, di
 | --- | --- | --- | --- |
 | Pemegang TSLAx | 20.700 | 250 | 83x |
 | Volume transfer bulanan NVDAx | $262 juta | $3.142 | 83.000x |
-| Pangsa volume DEX ekuitas yang ditokenisasi | ~97% | <1% | — |
+| Pangsa volume DEX ekuitas yang ditokenisasi | ~97% | &lt;1% | — |
 | Volume spot on-chain kumulatif | >$1,6 miliar | — | — |
 
 Diperkirakan 97% dari seluruh volume DEX ekuitas yang ditokenisasi terjadi di Solana. Mantle, meskipun memiliki keunggulan infrastruktur, menangkap sebagian kecil dari satu persen. Angka-angka ini bergerak cukup cepat sehingga patut diperiksa ulang terhadap RWA.xyz sebelum dikutip di mana pun secara permanen.

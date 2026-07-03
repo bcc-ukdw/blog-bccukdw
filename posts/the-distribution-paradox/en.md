@@ -100,7 +100,7 @@ The distribution gap becomes clearer when compared to Solana, where the same xSt
 | --- | --- | --- | --- |
 | TSLAx holders | 20,700 | 250 | 83x |
 | NVDAx monthly transfer volume | $262M | $3,142 | 83,000x |
-| Tokenized equity DEX volume share | ~97% | <1% | — |
+| Tokenized equity DEX volume share | ~97% | &lt;1% | — |
 | Cumulative on-chain spot volume | >$1.6B | — | — |
 
 An estimated 97% of all tokenized equity DEX volume occurs on Solana. Mantle, despite its infrastructure advantages, captures a fraction of one percent. These figures move quickly enough that they are worth re-checking against RWA.xyz before citing anywhere permanent.
