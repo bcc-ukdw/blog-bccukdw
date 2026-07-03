@@ -12,7 +12,7 @@ Full author reference: `posts/_template/README.md`. Start by copying `posts/_tem
 
 ## Non-negotiables
 
-- **Three languages per post.** `posts/<slug>/id.md`, `en.md`, and `cn.md` — all three
+- **Three languages per post.** `posts/<slug>/id.mdx`, `en.mdx`, and `cn.mdx` — all three
   (the site hides any language whose file is missing).
 - **Inline images use absolute `raw.githubusercontent.com/...` URLs.** Relative paths
   render broken because the site runs on a different domain than this repo.
@@ -25,6 +25,6 @@ Full author reference: `posts/_template/README.md`. Start by copying `posts/_tem
 posts/
   _template/              # starter files + README.md (author guide) — ignored by the site
   <slug>/
-    id.md  en.md  cn.md   # one article, three languages
+    id.mdx  en.mdx  cn.mdx   # one article, three languages
     images/              # this post's images, referenced by absolute raw URL
 ```
