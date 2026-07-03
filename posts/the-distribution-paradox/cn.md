@@ -49,10 +49,6 @@ xStocks由位于泽西岛的特殊目的载体Backed Assets (JE) Limited发行�
 ### 2.3 第三阶段：执行（Execution）
 Fluxion Network通过其xChange协议提供交易基础设施，该协议结合了自动做市商（AMM）和报价请求（RFQ）系统。当用户发起swap时，Atomic RFQ机制从机构做市商处获取实时报价，将价格锁定在智能合约中，并在链上执行——消除了困扰标准AMM设计的滑点、抢跑（front-running）和部分成交问题。
 
-<!-- Figure placeholder — Fluxion Atomic RFQ diagram -->
-<!-- ![图 1 — Fluxion Atomic RFQ 执行流程](images/fig1_fluxion_rfq.png) -->
-<!-- *图 1 — Fluxion Atomic RFQ 执行流程。* -->
-
 ### 2.4 第四阶段：零售访问（Retail Access）
 Bybit是全球第二大加密货币交易所，拥有超过8000万用户，它充当了零售漏斗——通过Bybit现货（Spot）上的xStocks，也可通过Bybit基于账户的链上接口Bybit Alpha进行访问。
 
@@ -81,10 +77,6 @@ TVL不是分发。总锁仓量衡量的是锁定在合约中的资产，而不�
 该发布日期的背景很重要：同一天，Bybit的IPO Express——其专门为资助零售用户获取SpaceX上市敞口而构建的旗舰认购活动——宣布未能从标的发行中获得任何分配，并向每位参与者退还了100%的认购资金，外加一小笔补偿奖金。Binance平行的SpaceX认购活动也在同一周因类似原因被取消。无论Mantle的管线在SPCXx推出的头几天指望哪种零售漏斗，纸面上最大的那一个都没有向任何人交付代币。
 
 即使考虑到所有这些因素，链上数据依然令人瞩目：发布约一周后的独立链上分析发现，Mantle上约99.5%的SPCXx总供应量集中在一个与发行方关联的单一部署者钱包中，链上可见的独立持有者大约只有20到24个——按照上述框架，这是触达率和入门体验的失败。每月数百万美元低个位数的转账交易量听起来更健康，但该交易量主要由做市商和机构套利者驱动，而非零售活动——这是一个对专业人士活跃而对其他所有人休眠的流动性维度。
-
-<!-- Figure placeholder — SPCXx holder concentration -->
-<!-- ![图 2 — Mantle上的SPCXx：99.5%的供应量集中在一个钱包中，约20名持有者](images/fig2_spcx_concentration.png) -->
-<!-- *图 2 — Mantle上的SPCXx：99.5%的供应量集中在一个钱包中，大约20名独立持有者。* -->
 
 随着SPCXx的成熟，这种情况是否会改变，或者Mantle的xStocks篮子中的其他产品是否显示出相同的模式，本分析无法仅从一个存在三周的资产中完全得出结论——值得将其作为一个局限性指出来，而不是掩盖它。
 

@@ -64,10 +64,6 @@ Token yang diterbitkan diselesaikan di Mantle Network, sebuah rollup Ethereum La
 
 Fluxion Network menyediakan infrastruktur perdagangan melalui protokol xChange-nya, yang menggabungkan Automated Market Maker dengan sistem Request-for-Quote. Ketika pengguna memulai swap, mekanisme Atomic RFQ mendapatkan live quote dari market maker institusional, mengunci harga dalam smart contract, dan mengeksekusi on-chain — mengeliminasi slippage, front-running, dan partial fill yang menghantui desain AMM standar.
 
-<!-- Figure placeholder — Fluxion Atomic RFQ diagram -->
-<!-- ![Figure 1 — Fluxion Atomic RFQ execution flow](images/fig1_fluxion_rfq.png) -->
-<!-- *Figure 1 — Fluxion Atomic RFQ execution flow.* -->
-
 ### 2.4 Tahap 4: Akses Ritel
 
 Bybit, bursa mata uang kripto terbesar kedua di dunia dengan lebih dari 80 juta pengguna, berfungsi sebagai jalur ritel — melalui xStocks di Bybit Spot, yang juga dapat diakses melalui Bybit Alpha, antarmuka on-chain berbasis akun Bybit.
@@ -101,10 +97,6 @@ Ekuitas SpaceX yang ditokenisasi, produk RWA paling terkenal Mantle, adalah stud
 Konteks sekitar tanggal peluncuran itu penting: pada hari yang sama, IPO Express Bybit — kampanye langganan unggulan yang secara khusus dibangun untuk mendanai eksposur ritel ke listing SpaceX — mengumumkan bahwa mereka gagal mengamankan alokasi apa pun dari penawaran yang mendasarinya dan mengembalikan 100% dana yang dilanggankan kepada setiap peserta, ditambah bonus kompensasi kecil. Kampanye SpaceX Binance yang sejajar dibatalkan dalam minggu yang sama karena alasan serupa. Jalur ritel mana pun yang diandalkan pipeline Mantle di hari-hari pertama SPCXx, satu-satunya yang terbesar di atas kertas tidak mengirimkan satu pun token kepada siapa pun.
 
 Bahkan dengan mempertimbangkan semua itu, angka on-chain sangat mencolok: analisis on-chain independen sekitar seminggu setelah peluncuran menemukan sekitar 99,5% dari total pasokan SPCXx di Mantle berada di satu dompet deployer yang terhubung dengan penerbit, dengan sekitar 20 hingga 24 pemegang unik yang terlihat on-chain — kegagalan jangkauan dan orientasi pengguna berdasarkan kerangka di atas. Volume transfer bulanan dalam kisaran satu digit juta dolar terdengar lebih sehat, tetapi volume itu didorong terutama oleh market maker dan arbitrageur institusional, bukan aktivitas ritel — pilar likuiditas yang aktif untuk profesional dan tidak aktif untuk semua orang lainnya.
-
-<!-- Figure placeholder — SPCXx holder concentration -->
-<!-- ![Figure 2 — SPCXx on Mantle: 99.5% supply in one wallet, ~20 holders](images/fig2_spcx_concentration.png) -->
-<!-- *Figure 2 — SPCXx on Mantle: 99.5% supply in one wallet, approximately 20 unique holders.* -->
 
 Apakah itu berubah seiring matangnya SPCXx, atau apakah sisa keranjang xStocks Mantle menunjukkan pola yang sama, bukanlah sesuatu yang dapat diselesaikan analisis ini dari satu aset yang baru berusia tiga minggu — layak ditandai sebagai keterbatasan daripada ditutupi.
 
@@ -219,16 +211,16 @@ Tokenisasi menjanjikan untuk menempatkan setiap aset dalam jangkauan siapa pun y
 
 ## Referensi
 
-1. Mantle. "Q1 2026 and H1 2026 Ecosystem Report." mantle.xyz. Diakses 3 Jul 2026. <https://www.prnewswire.com/news-releases/mantle-posts-27-rwa-growth-in-q1-2026--reaching-247-5m-according-to-messari-302795234.html>
-2. RWA.xyz. "RWA Tokenization Dashboard." rwa.xyz. Diakses 3 Jul 2026. <https://app.rwa.xyz>
-3. Fluxion Network. "Protocol Metrics." fluxion.network. Diakses 3 Jul 2026. <https://fluxion.network>
+1. Mantle. "Q1 2026 and H1 2026 Ecosystem Report." mantle.xyz. Diakses 3 Jul 2026. https://www.prnewswire.com/news-releases/mantle-posts-27-rwa-growth-in-q1-2026--reaching-247-5m-according-to-messari-302795234.html
+2. RWA.xyz. "RWA Tokenization Dashboard." rwa.xyz. Diakses 3 Jul 2026. https://app.rwa.xyz
+3. Fluxion Network. "Protocol Metrics." fluxion.network. Diakses 3 Jul 2026. https://fluxion.network
 4. Yellow.com Research. "Secondary Market Infrastructure for RWAs." Jun 2026.
 5. Canton Network / RWA.io. "State of RWA Tokenization 2026." 2026.
-6. "Tokenize Everything, But Can You Sell It?" arXiv:2508.11651v1 (Agt 2025). <https://arxiv.org/html/2508.11651v1>
-7. "Beyond TVL: Risk Scoring for Tokenized Assets." arXiv:2605.29689 (Mei 2026). <https://arxiv.org/abs/2605.29689>
+6. "Tokenize Everything, But Can You Sell It?" arXiv:2508.11651v1 (Agt 2025). https://arxiv.org/html/2508.11651v1
+7. "Beyond TVL: Risk Scoring for Tokenized Assets." arXiv:2605.29689 (Mei 2026). https://arxiv.org/abs/2605.29689
 8. Xangle Research. "Tokenized Equity Market Analysis." 2025.
-9. Backed Finance. "xStocks Documentation — Risk Factors, Prospectus, and Legal Structure." backedassets.com. Liechtenstein FMA prospectus filings. <https://assets.backed.fi>
-10. Bybit. "xStocks on Bybit — Terms and Conditions; FAQ; Help Center." bybit.com. Diakses 3 Jul 2026. <https://www.bybit.com>
+9. Backed Finance. "xStocks Documentation — Risk Factors, Prospectus, and Legal Structure." backedassets.com. Liechtenstein FMA prospectus filings. https://assets.backed.fi
+10. Bybit. "xStocks on Bybit — Terms and Conditions; FAQ; Help Center." bybit.com. Diakses 3 Jul 2026. https://www.bybit.com
 11. Pelaporan publik mengenai pengembalian dana SpaceX IPO Express Bybit dan Binance Juni 2026.
 
 ---
@@ -241,7 +233,3 @@ Tokenisasi menjanjikan untuk menempatkan setiap aset dalam jangkauan siapa pun y
 
 ## Tentang Penulis
 
-<!-- Ganti dengan info kamu -->
-<!-- ![Author Name](/_next/image?url=AVATAR_URL&w=128&q=75) -->
-<!-- **Author Name** — [Bio singkat] -->
-<!-- View all articles → -->
