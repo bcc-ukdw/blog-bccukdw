@@ -11,7 +11,7 @@ This repo (`bcc-ukdw/blog-bccukdw`) holds the **content** for the blog at blog.b
 
 **Three non-negotiables — a post is incomplete without all of them:**
 
-1. **Three languages.** Every post needs `id.md`, `en.md`, AND `cn.md`. The site hides any language whose file is missing.
+1. **Three languages.** Every post needs `id.mdx`, `en.mdx`, AND `cn.mdx`. The site hides any language whose file is missing.
 2. **Absolute image URLs.** Inline images MUST use the full `https://raw.githubusercontent.com/...` URL. Relative paths render broken (the site runs on a different domain than this repo).
 3. **Submit via pull request** to `bcc-ukdw/blog-bccukdw` `main`. Don't assume direct push access.
 
@@ -19,7 +19,7 @@ This repo (`bcc-ukdw/blog-bccukdw`) holds the **content** for the blog at blog.b
 
 1. **Fork** `bcc-ukdw/blog-bccukdw` (skip if you already have write access — just create a branch).
 2. **Copy `posts/_template/`** and rename it to your slug → `posts/<your-slug>/`. The slug is lowercase with hyphens, no spaces, and must NOT start with `_`. It becomes the URL: `blog.bccukdw.xyz/<your-slug>`.
-3. **Write all three files** `id.md`, `en.md`, `cn.md` — the same article, translated. Keep `date`, `author`, `authorName`, and `category` **identical** across all three; translate `title`, `excerpt`, and `tags`.
+3. **Write all three files** `id.mdx`, `en.mdx`, `cn.mdx` — the same article, translated. Keep `date`, `author`, `authorName`, and `category` **identical** across all three; translate `title`, `excerpt`, and `tags`.
 4. **Fill the frontmatter** (see Quick reference below; full field table in `posts/_template/README.md`).
 5. **Add images** to `posts/<your-slug>/images/` and reference them with absolute URLs (see Images).
 6. **Validate** against the checklist.
@@ -58,7 +58,7 @@ cover: "https://images.unsplash.com/...?w=1200"  # optional, allowed hosts only
 ---
 ```
 
-- `readTime` is **auto-calculated — omit it.** Exception: in `cn.md`, set it manually to the **same number the `en`/`id` version shows** (the auto-count undercounts Chinese, which has no spaces between words).
+- `readTime` is **auto-calculated — omit it.** Exception: in `cn.mdx`, set it manually to the **same number the `en`/`id` version shows** (the auto-count undercounts Chinese, which has no spaces between words).
 - Allowed hosts for `cover` / `authorAvatar`: `raw.githubusercontent.com`, `*.githubusercontent.com`, `images.unsplash.com`, `i.imgur.com`, `bccukdw.xyz`. Any other host is rejected by the site.
 
 ## Images (the #1 mistake)
@@ -76,7 +76,7 @@ Pattern: `https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/<sl
 
 ## Validation checklist
 
-- [ ] `posts/<slug>/` contains `id.md`, `en.md`, AND `cn.md`.
+- [ ] `posts/<slug>/` contains `id.mdx`, `en.mdx`, AND `cn.mdx`.
 - [ ] Each file's frontmatter has `title`, `date`, `author`, `authorName`, `category`, `tags`, `excerpt`.
 - [ ] Every inline image uses an absolute `raw.githubusercontent.com/...` URL.
 - [ ] `cover` (if set) uses an allowed host.
@@ -86,10 +86,10 @@ Pattern: `https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/<sl
 
 | Mistake | Fix |
 |---|---|
-| Only wrote `en.md` | Add `id.md` + `cn.md` — all three are required |
+| Only wrote `en.mdx` | Add `id.mdx` + `cn.mdx` — all three are required |
 | Relative image path | Use the absolute `raw.githubusercontent.com/...` URL |
 | Slug starts with `_` | `_`-prefixed folders are ignored by the site; rename it |
-| Set `readTime` on every file | Omit it (auto); set it only in `cn.md` |
+| Set `readTime` on every file | Omit it (auto); set it only in `cn.mdx` |
 | Pushed a branch and waited | Open a PR to `main`; it publishes after merge |
 | Only translated the body | Translate `title`, `excerpt`, `tags` per language too |
 

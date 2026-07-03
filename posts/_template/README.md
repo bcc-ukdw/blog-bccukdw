@@ -13,9 +13,9 @@ Satu artikel = satu folder. Nama folder = **slug** (jadi bagian URL). Tiap folde
 ```
 posts/
   nama-artikel-kamu/        ← slug, huruf kecil, pakai tanda hubung (-)
-    id.md                   ← Bahasa Indonesia
-    en.md                   ← English
-    cn.md                   ← 中文
+    id.mdx                   ← Bahasa Indonesia
+    en.mdx                   ← English
+    cn.mdx                   ← 中文
     images/                 ← (opsional) gambar artikel ini, lihat bagian Gambar
       diagram.png
 ```
@@ -28,7 +28,7 @@ posts/
 ## 2. Bikin artikel baru (langkah)
 
 1. Copy folder `_template/` → ganti namanya jadi slug artikelmu.
-2. Isi frontmatter (lihat bagian 3) di **ketiga** file `id.md`, `en.md`, `cn.md`.
+2. Isi frontmatter (lihat bagian 3) di **ketiga** file `id.mdx`, `en.mdx`, `cn.mdx`.
 3. Tulis isi pakai Markdown biasa.
 4. Hapus baris contoh yang tidak dipakai.
 5. Commit + push ke branch `main`. Live dalam ~1 jam (cache revalidate tiap 1 jam; halaman artikel tiap 24 jam).

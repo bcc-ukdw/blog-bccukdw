@@ -1,0 +1,33 @@
+name: Validate MDX
+
+# Every blog post is rendered through MDX (next-mdx-remote), which is stricter
+# than CommonMark. This compiles each post the same way the site does, so invalid
+# MDX (raw "<", HTML comments, bare <url> autolinks, bad frontmatter) is caught on
+# the PR instead of 500-ing the live article page.
+
+on:
+  pull_request:
+    paths:
+      - "posts/**"
+      - ".github/scripts/**"
+      - ".github/workflows/validate-mdx.yml"
+  push:
+    branches: [main]
+    paths:
+      - "posts/**"
+      - ".github/scripts/**"
+      - ".github/workflows/validate-mdx.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install validator dependencies
+        working-directory: .github/scripts
+        run: npm install --no-audit --no-fund
+      - name: Compile every post as MDX
+        run: node .github/scripts/validate-mdx.mjs
