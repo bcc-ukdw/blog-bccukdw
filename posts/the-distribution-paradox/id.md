@@ -1,0 +1,247 @@
+---
+title: "Paradoks Distribusi: Apa yang Pipeline RWA Mantle Ungkap tentang Kesenjangan Triliunan Dolar antara Tokenisasi dan Adopsi"
+date: "2026-07-03"
+author: "Stylenecy"
+authorName: "Dex Bennett"
+authorAvatar: "https://github.com/Stylenecy.png"
+category: "Blockchain"
+tags: ["rwa", "tokenisasi", "distribusi", "mantle", "defi", "ce-defi", "onchain-finance"]
+excerpt: "Industri kripto telah berhasil menyelesaikan masalah tokenisasi aset, tetapi distribusi — menghadirkan aset tersebut ke tangan pengguna nyata — masih jauh dari selesai. Analisis ini menggunakan pipeline CeDeFi Mantle sebagai studi kasus untuk mengevaluasi di mana letak kesenjangan sesungguhnya."
+cover: "https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/main/posts/the-distribution-paradox/images/cover.jpg"
+---
+
+> Catatan riset mengenai kesenjangan antara penerbitan aset yang ditokenisasi dan distribusi aktual — menggunakan pipeline CeDeFi Mantle sebagai studi kasus. Submisi untuk Mantle Research Challenge: Prove the Next Move in Onchain Finance. Juli 2026.
+
+## Abstrak
+
+Aset dunia nyata yang ditokenisasi telah berkembang menjadi pasar bernilai miliaran dolar — laporan Canton Network dan RWA.io tahun 2026 menempatkan nilai RWA on-chain di atas $36 miliar (tidak termasuk stablecoin), dan Boston Consulting Group memproyeksikan peluang pasar senilai $16 triliun pada tahun 2030. Namun hampir tidak ada yang memperdagangkannya. Makalah ini berargumen bahwa industri kripto telah berhasil menyelesaikan masalah penerbitan tetapi belum memulai penyelesaian distribusi — kesenjangan antara "tersedia secara teknis" dan "benar-benar digunakan" adalah ketegangan yang menentukan keuangan yang ditokenisasi pada tahun 2026. Dengan menggunakan pipeline CeDeFi Mantle Network (Backed Finance untuk penerbitan, Mantle untuk penyelesaian, Fluxion Network untuk eksekusi, Bybit untuk akses ritel) sebagai studi kasus, kami membangun kerangka distribusi lima pilar (Jangkauan, Likuiditas, Kualitas Eksekusi, Orientasi Pengguna, Komposabilitas) dan mengevaluasi Mantle terhadap setiap pilar. Data on-chain mengungkap pipeline yang lengkap secara arsitektur namun belum lengkap secara operasional: kuat pada kualitas eksekusi, lemah pada likuiditas, parsial pada jangkauan, campuran pada orientasi pengguna, dan belum terkonfirmasi pada komposabilitas. Paradoks distribusi ini bukan milik Mantle semata — ini adalah masalah seluruh industri. Tidak satu pun pipeline telah menyelesaikannya.
+
+---
+
+## Temuan Utama
+
+1. **TVL bukan distribusi.** Mantle melaporkan $247,5 juta dalam RWA TVL (K1 2026, dikonfirmasi Messari), tetapi TVL mengukur modal yang tersimpan, bukan modal yang bergerak. Data on-chain pada level aset menceritakan kisah yang berbeda dari angka utama. ([Mantle Q1 2026 ecosystem reporting](https://www.prnewswire.com/news-releases/mantle-posts-27-rwa-growth-in-q1-2026--reaching-247-5m-according-to-messari-302795234.html); [RWA.xyz](https://app.rwa.xyz))
+
+2. **Peluncuran SPCXx mengekspos kesenjangan distribusi — dan kegagalan Bybit IPO Express.** SPCXx diluncurkan di Mantle pada 12 Juni 2026. Pada hari yang sama, kampanye IPO Express Bybit — jalur ritel utama untuk eksposur SpaceX — gagal mengamankan alokasi apa pun dan mengembalikan 100% dana yang dilanggankan kepada setiap peserta, ditambah bonus kompensasi kecil. Kampanye SpaceX Binance yang sejajar dibatalkan dalam minggu yang sama karena alasan serupa. Secara on-chain, ~99,5% pasokan SPCXx berada di satu dompet deployer yang terhubung dengan penerbit, dengan ~20–24 pemegang unik. ([Data on-chain, Mantle explorer](https://mantlescan.xyz); pelaporan publik mengenai pengembalian dana Bybit IPO Express)
+
+3. **Solana mencapai 83x lebih banyak pemegang dan 83.000x lebih banyak volume transfer untuk produk yang sama.** TSLAx memiliki 20.700 pemegang di Solana dibandingkan 250 di Mantle. NVDAx memproses $262 juta per bulan di Solana dibandingkan $3.142 di Mantle. Diperkirakan 97% dari seluruh volume DEX ekuitas yang ditokenisasi terjadi di Solana. ([RWA.xyz](https://app.rwa.xyz))
+
+4. **Model Bybit menyelesaikan hambatan kripto-native tetapi bukan hambatan hukum.** Listing xStocks Bybit menghilangkan hambatan dompet, gas, dan modal minimum untuk perdagangan sekunder. Namun gerbang Qualified Investor pada penerbitan primer tetap ada, dan Bybit mengecualikan EEA — meskipun prospektus Backed dapat di-passport ke seluruh EEA. Dua dari tiga hambatan klasik telah diturunkan; angka on-chain belum mencerminkannya. ([Bybit Help Center](https://www.bybit.com); [Backed Finance documentation](https://assets.backed.fi))
+
+5. **Tumpukan distribusi lima pilar mengungkap gambaran nyata.** Satu pilar kuat (Kualitas Eksekusi), satu parsial (Jangkauan), satu lemah (Likuiditas), satu campuran (Orientasi Pengguna), satu belum terkonfirmasi (Komposabilitas). Itu bukan arsitektur lima-dari-lima — itu adalah fondasi nyata dengan celah nyata, yang lebih berguna untuk diketahui daripada "Mantle telah menyelesaikannya" atau "Mantle gagal."
+
+---
+
+## 1. Apa yang Dimaksud dengan "Distribusi"
+
+Istilah "distribusi" digunakan secara longgar dalam keuangan yang ditokenisasi, sehingga perlu diperjelas apa sebenarnya yang dibutuhkan. Ini bukan masalah tunggal. Ini adalah tumpukan lima persyaratan berbeda yang semuanya harus dipenuhi secara bersamaan:
+
+* **Jangkauan** — Dapatkah pengguna dari berbagai yurisdiksi mengakses aset tersebut?
+* **Likuiditas** — Apakah terdapat kedalaman yang cukup untuk perdagangan berarti tanpa slippage?
+* **Kualitas eksekusi** — Dapatkah order diselesaikan pada harga pasar yang wajar, 24/7?
+* **Orientasi pengguna** — Dapatkah pengguna non-kripto memperoleh aset tanpa hambatan?
+* **Komposabilitas** — Dapatkah aset yang ditokenisasi digunakan sebagai jaminan, dipinjamkan, atau diintegrasikan ke dalam strategi DeFi?
+
+Kerangka lima pilar ini bukan standar industri — ini adalah lensa analitis yang digunakan artikel ini untuk mengevaluasi klaim distribusi, dibangun dari apa yang sebenarnya menentukan apakah suatu aset yang ditokenisasi berakhir di tangan seseorang daripada hanya ada di buku besar. Pipeline yang hanya menyelesaikan satu atau dua dari ini bukanlah solusi distribusi. Itu adalah solusi parsial dengan anggaran pemasaran. Pertanyaan untuk ekosistem RWA mana pun bukan apakah ia dapat men-tokenisasi — bagian itu semakin menjadi komoditas — tetapi apakah ia dapat memberikan kelima pilar tumpukan ini dalam skala besar.
+
+---
+
+## 2. Pipeline Mantle: Arsitektur Empat Tahap
+
+Pendekatan Mantle terhadap distribusi RWA beroperasi melalui pipeline transmisi CeDeFi — model hibrida yang menjembatani akses bursa terpusat dengan penyelesaian on-chain terdesentralisasi. Pipeline bergerak melalui empat fase:
+
+### 2.1 Tahap 1: Penerbitan
+
+xStocks diterbitkan oleh Backed Assets (JE) Limited, sebuah special purpose vehicle berbasis di Jersey. Token-token tersebut terstruktur sebagai sertifikat pelacak — instrumen derivatif yang memberikan eksposur ekonomi sintetis ke saham yang mendasarinya, bukan kepemilikan ekuitas dengan hak suara. Token-token ini sepenuhnya terjamin 1:1 dengan sekuritas yang mendasarinya yang dipegang dalam custody bankruptcy-remote oleh lembaga pialang yang diregulasi: Alpaca Securities LLC sebagai broker-dealer AS dan Maerki Baumann & Co. AG sebagai bank kustodian Swiss.
+
+Yang kritis, dokumentasi resmi Backed secara eksplisit menyatakan bahwa aset-aset ini "tidak ditawarkan langsung kepada publik dan hanya akan ditawarkan kepada 'Qualified Investors'." Pemisahan custody dari distribusi ini adalah fondasi — klaim hukum berada di dalam perimeter perbankan yang diregulasi sementara token berada di ruang blok publik. Penerbitan itu juga berlandaskan jalur hukum yang nyata: prospektus dasar Backed untuk xStocks disetujui oleh Financial Market Authority (FMA) Liechtenstein dan, berdasarkan aturan passport prospektus EU/EEA, dapat ditawarkan secara legal kepada qualified investors di sekitar 30 negara EEA tanpa persetujuan terpisah di masing-masing negara. Ini adalah infrastruktur Jangkauan yang nyata — apakah platform ritel mana pun memilih untuk menggunakannya adalah pertanyaan yang berbeda.
+
+### 2.2 Tahap 2: Penyelesaian
+
+Token yang diterbitkan diselesaikan di Mantle Network, sebuah rollup Ethereum Layer-2 modular dengan biaya transaksi rata-rata sekitar $0,0023. Struktur biaya ini sangat penting untuk perdagangan sekunder berkecepatan tinggi yang tidak akan ekonomis di Ethereum Mainnet.
+
+### 2.3 Tahap 3: Eksekusi
+
+Fluxion Network menyediakan infrastruktur perdagangan melalui protokol xChange-nya, yang menggabungkan Automated Market Maker dengan sistem Request-for-Quote. Ketika pengguna memulai swap, mekanisme Atomic RFQ mendapatkan live quote dari market maker institusional, mengunci harga dalam smart contract, dan mengeksekusi on-chain — mengeliminasi slippage, front-running, dan partial fill yang menghantui desain AMM standar.
+
+<!-- Figure placeholder — Fluxion Atomic RFQ diagram -->
+<!-- ![Figure 1 — Fluxion Atomic RFQ execution flow](images/fig1_fluxion_rfq.png) -->
+<!-- *Figure 1 — Fluxion Atomic RFQ execution flow.* -->
+
+### 2.4 Tahap 4: Akses Ritel
+
+Bybit, bursa mata uang kripto terbesar kedua di dunia dengan lebih dari 80 juta pengguna, berfungsi sebagai jalur ritel — melalui xStocks di Bybit Spot, yang juga dapat diakses melalui Bybit Alpha, antarmuka on-chain berbasis akun Bybit.
+
+Bybit juga menjalankan platform "RWA Earn" yang terpisah, tetapi produk itu tidak ada hubungannya dengan ekuitas yang ditokenisasi — produk tersebut diluncurkan pada Juni 2026 yang menawarkan dana obligasi yang ditokenisasi dari PIMCO dan China Merchants Bank International, didistribusikan melalui Plume dan DigiFT. Akses xStocks di Bybit adalah listing spot standar: pengguna memperdagangkan pasangan xStocks langsung terhadap USDT atau USDC, tanpa minimum langganan di luar batas ukuran order biasa.
+
+Syarat dan ketentuan resmi Bybit secara eksplisit menyatakan apa yang bukan merupakan peran bursa: "Bybit is not the issuer, custodian, market maker or seller of xStocks." Peran itu ada pada Backed dan kustodiannya; Bybit melepaskan tanggung jawab atas solvabilitas mereka, dan atas keakuratan oracle harga yang membuat token melacak saham. Karena xStocks diterbitkan sebagai token di chain publik, dokumentasi resmi Bybit menggambarkannya sebagai dapat ditarik ke dompet self-custody yang kompatibel dan dapat digunakan on-chain — ini bukan, berdasarkan desain, produk kustodial murni, meskipun apakah token yang diperoleh dari Bybit dapat di-bridge secara bersih ke Mantle secara spesifik, versus chain asalnya, adalah sesuatu yang tidak dapat dikonfirmasi oleh analisis ini.
+
+Perdagangan xStocks di Bybit juga tidak tersedia untuk pengguna institusional, market maker, atau pengguna di Australia, Jepang, dan seluruh negara anggota European Economic Area — meskipun ada prospektus yang dapat di-passport ke EEA seperti disebutkan di atas. Itu adalah celah jangkauan yang nyata.
+
+Secara tertulis, ini terlihat sebagai salah satu pipeline distribusi yang lebih lengkap dalam ekuitas yang ditokenisasi: penerbitan melalui SPV Jersey yang diregulasi dengan custody Swiss dan prospektus yang dapat di-passport ke EEA, penyelesaian di L2 berbiaya rendah, eksekusi melalui RFQ tingkat institusional, akses ritel melalui bursa tiga teratas tanpa modal minimum pasar sekunder. Arsitektur ini dirancang untuk memenuhi kelima pilar tumpukan distribusi.
+
+Apakah memang demikian dalam praktik adalah pertanyaan yang berbeda. Data on-chain menjawabnya secara langsung.
+
+---
+
+## 3. Data yang Bertentangan
+
+Metrik RWA utama Mantle terlihat kuat di permukaan. Pelaporan ekosistem K1 2026 jaringan itu sendiri — dikonfirmasi oleh Messari — menempatkan RWA Total Value Locked di $247,5 juta, naik 27,4% quarter-over-quarter. Angka tersebut berasal dari pelaporan Mantle sendiri daripada audit pihak ketiga yang sepenuhnya independen, dan patut disilangkan dengan agregator seperti RWA.xyz sebelum memperlakukan desimal tertentu sebagai angka pasti.
+
+Angka utama itu nyata. Itu juga adalah angka yang salah untuk dilihat.
+
+**TVL bukan distribusi.** Total Value Locked mengukur aset yang terkunci dalam kontrak, bukan aset yang bergerak. Vault yang memegang $90 juta dalam syrupUSDT adalah TVL. Itu bukan bukti bahwa siapa pun sedang memperdagangkan, mendistribusikan, atau secara aktif menggunakan aset yang ditokenisasi. Perbedaan ini penting: TVL adalah ukuran modal yang tersimpan; distribusi adalah ukuran modal yang bergerak.
+
+Ketika data on-chain diperiksa pada level aset, kesenjangan distribusi menjadi jelas.
+
+### 3.1 Masalah konsentrasi SPCXx
+
+Ekuitas SpaceX yang ditokenisasi, produk RWA paling terkenal Mantle, adalah studi kasus yang berguna — meskipun masih dini. SPCXx diluncurkan di Mantle pada 12 Juni 2026, bersamaan dengan debut SpaceX di pasar dunia nyata, sehingga sebagian dari hal berikut mencerminkan aset yang baru saja diluncurkan daripada aset yang sudah matang.
+
+Konteks sekitar tanggal peluncuran itu penting: pada hari yang sama, IPO Express Bybit — kampanye langganan unggulan yang secara khusus dibangun untuk mendanai eksposur ritel ke listing SpaceX — mengumumkan bahwa mereka gagal mengamankan alokasi apa pun dari penawaran yang mendasarinya dan mengembalikan 100% dana yang dilanggankan kepada setiap peserta, ditambah bonus kompensasi kecil. Kampanye SpaceX Binance yang sejajar dibatalkan dalam minggu yang sama karena alasan serupa. Jalur ritel mana pun yang diandalkan pipeline Mantle di hari-hari pertama SPCXx, satu-satunya yang terbesar di atas kertas tidak mengirimkan satu pun token kepada siapa pun.
+
+Bahkan dengan mempertimbangkan semua itu, angka on-chain sangat mencolok: analisis on-chain independen sekitar seminggu setelah peluncuran menemukan sekitar 99,5% dari total pasokan SPCXx di Mantle berada di satu dompet deployer yang terhubung dengan penerbit, dengan sekitar 20 hingga 24 pemegang unik yang terlihat on-chain — kegagalan jangkauan dan orientasi pengguna berdasarkan kerangka di atas. Volume transfer bulanan dalam kisaran satu digit juta dolar terdengar lebih sehat, tetapi volume itu didorong terutama oleh market maker dan arbitrageur institusional, bukan aktivitas ritel — pilar likuiditas yang aktif untuk profesional dan tidak aktif untuk semua orang lainnya.
+
+<!-- Figure placeholder — SPCXx holder concentration -->
+<!-- ![Figure 2 — SPCXx on Mantle: 99.5% supply in one wallet, ~20 holders](images/fig2_spcx_concentration.png) -->
+<!-- *Figure 2 — SPCXx on Mantle: 99.5% supply in one wallet, approximately 20 unique holders.* -->
+
+Apakah itu berubah seiring matangnya SPCXx, atau apakah sisa keranjang xStocks Mantle menunjukkan pola yang sama, bukanlah sesuatu yang dapat diselesaikan analisis ini dari satu aset yang baru berusia tiga minggu — layak ditandai sebagai keterbatasan daripada ditutupi.
+
+### 3.2 Perbandingan Solana
+
+Kesenjangan distribusi menjadi lebih jelas ketika dibandingkan dengan Solana, di mana produk xStocks yang sama mencapai metrik adopsi yang sangat berbeda per akhir Juni 2026:
+
+| Metrik | Solana | Mantle | Rasio |
+| --- | --- | --- | --- |
+| Pemegang TSLAx | 20.700 | 250 | 83x |
+| Volume transfer bulanan NVDAx | $262 juta | $3.142 | 83.000x |
+| Pangsa volume DEX ekuitas yang ditokenisasi | ~97% | <1% | — |
+| Volume spot on-chain kumulatif | >$1,6 miliar | — | — |
+
+Diperkirakan 97% dari seluruh volume DEX ekuitas yang ditokenisasi terjadi di Solana. Mantle, meskipun memiliki keunggulan infrastruktur, menangkap sebagian kecil dari satu persen. Angka-angka ini bergerak cukup cepat sehingga patut diperiksa ulang terhadap RWA.xyz sebelum dikutip di mana pun secara permanen.
+
+Satu catatan penting sebelum perbandingan itu diinterpretasi secara berlebihan. Sebagian bermakna dari distribusi SPCXx Mantle yang sebenarnya mungkin terjadi di dalam buku order dan buku besar akun Bybit sendiri — perdagangan dan kepemilikan yang tidak pernah menyentuh dompet self-custody dan dengan demikian tidak pernah muncul dalam jumlah pemegang on-chain di atas. Itu adalah celah nyata dalam apa yang dapat dibuktikan angka-angka ini. Tetapi ini berlaku dua arah: baik Bybit maupun Mantle tidak mempublikasikan angka perdagangan atau pemegang xStocks tingkat platform, dan satu-satunya momen di mana jalur ritel Bybit untuk SPCXx paling terlihat oleh publik — kampanye IPO Express — gagal mengirimkan satu token pun. Sampai salah satu dari dua pihak mengungkapkan angka tingkat platform, kesenjangan on-chain tetap menjadi satu-satunya data distribusi yang dapat dilihat oleh siapa pun di luar dua perusahaan tersebut — dan dengan ukuran itu, kesenjangan tersebut masih nyata.
+
+### 3.3 Hambatan ritel — lebih kecil dari yang pertama terlihat, tetapi masih nyata
+
+Perdagangan xStocks di Bybit tidak membawa modal minimum sendiri; ini bekerja seperti pasangan spot lainnya. Gerbang modal berada satu tingkat lebih tinggi, pada penerbitan primer: penerbitan dan penebusan langsung dengan Backed memerlukan investasi minimum yang dilaporkan sebesar $100.000. Angka "hingga $1 juta" yang sering dikutip untuk beberapa chain tidak dapat diverifikasi secara independen dalam tahap ini dan tidak harus diperlakukan sebagai angka pasti — jika ada, anggap minimum pasar primer sebagai "setidaknya enam digit," bukan kisaran yang terkonfirmasi.
+
+Yang lebih mendasar, dokumentasi hukum resmi Backed secara eksplisit menyatakan bahwa token-token ini tidak untuk penawaran publik dan terbatas pada investor yang memenuhi standar klien profesional/qualified investor Swiss dan EU. Itu adalah gerbang hukum, bukan sekadar gerbang modal — dan berlaku khusus untuk pasar primer, bukan untuk membeli xStock yang sudah diterbitkan di Bybit atau DEX.
+
+xStocks juga secara eksplisit tidak tersedia untuk penduduk Amerika Serikat dan Inggris pada level penerbit, dan Bybit secara terpisah mengecualikan Australia, Jepang, dan seluruh European Economic Area dari listing-nya sendiri — meskipun, seperti disebutkan di atas, prospektus Backed dapat di-passport ke EEA untuk qualified investors. Sebagian besar dari 80 juta pengguna Bybit yang secara nominal dapat dijangkau pipeline ini tidak lagi dikecualikan dari pasar sekunder; mereka dikecualikan secara hukum dari pasar primer, berdasarkan desain.
+
+Satu koreksi lagi perlu disebutkan di sini. Kajian awal materi ini menggambarkan xStocks sebagai membawa "compliance hook tingkat smart contract" — whitelisting on-chain yang akan menghentikan bahkan pemegang self-custody dari mengirim token ke alamat yang tidak terverifikasi. Klaim itu tidak bertahan di bawah tinjauan lebih dekat: pelaporan mengenai xStocks secara khusus menggambarkannya sebagai token yang dapat ditransfer dengan bebas setelah diperoleh, termasuk ke dompet yang belum pernah melalui KYC — yang tepatnya memungkinkan mereka terhubung ke Solana DeFi (Raydium, Jupiter, Kamino) sama sekali. Itu adalah pilihan desain yang disengaja, berbeda dari kompetitor seperti dShares Dinari, yang memang menyematkan penegakan whitelist on-chain. Implikasi praktisnya hampir kebalikan dari klaim awal: pembatasan yurisdiksi dan status investor di atas diberlakukan oleh KYC pada titik penjualan — bursa atau penerbit — bukan oleh kontrak token itu sendiri. Pemegang yang memperoleh xStocks secara sah secara teknis dapat memindahkannya ke mana saja.
+
+Tidak ada dari ini yang merupakan cacat desain, tepatnya. Ekuitas yang ditokenisasi adalah sekuritas, dan gerbang penerbitan primer ada karena hukum sekuritas mengharuskannya. Ketegangan nyata bukan bahwa penerbitan Backed memiliki ambang batas Qualified Investor — melainkan bahwa janji kripto-native tentang keuangan tanpa batas dan tanpa izin bertabrakan langsung dengan kepatuhan TradFi begitu aset yang mendasarinya adalah saham nyata, dan ketegangan itu sekarang muncul secara tidak merata di seluruh pipeline Mantle: sebagian besar terselesaikan pada lapisan perdagangan sekunder, sepenuhnya utuh pada lapisan penerbitan primer. Ketegangan itu bukan hanya milik Mantle atau Bybit untuk diselesaikan sendiri. Tetapi itu berarti "distribusi," dalam konteks ini, akan selalu berarti sesuatu yang lebih sempit dari yang disarankan oleh pemasaran industri itu sendiri.
+
+### 3.4 Kesenjangan eksekusi-realitas
+
+Pada saat penulisan ini, metrik Fluxion Network mengungkap pasar sekunder yang belum menemukan permintaan organik: volume perdagangan harian sekitar $80.000, turun sekitar 80% dari puncak terkini, dengan total likuiditas di seluruh pool sebesar $1,13 juta. Ini adalah angka hidup yang bergerak daripada fakta historis yang tetap, patut diperiksa ulang sebelum dikutip di mana pun secara permanen — tetapi urutan besarnya menceritakan kisahnya sendiri. Ini adalah infrastruktur perdagangan yang diposisikan sebagai jawaban atas hambatan distribusi. Volume harian satu ekuitas kelas menengah di bursa tradisional melebihi seluruh volume protokol Fluxion — pilar likuiditas yang, berdasarkan angka saat ini, belum menanggung beban.
+
+### 3.5 Kartu skor distribusi
+
+Diuraikan pilar demi pilar berdasarkan kerangka dari Bagian 1:
+
+| Pilar distribusi | Status | Bukti |
+| --- | --- | --- |
+| **Jangkauan** | Parsial | AS dan Inggris dikecualikan pada level penerbit untuk penerbitan primer; listing xStocks Bybit sendiri juga mengecualikan EEA, Australia, dan Jepang; status Qualified Investor diperlukan untuk penerbitan primer (minimum enam digit); prospektus FMA Liechtenstein Backed membuat pasar primer dapat di-passport secara legal di ~30 negara EEA, tetapi tidak ada platform ritel utama yang saat ini menggunakannya |
+| **Likuiditas** | Lemah | Volume harian Fluxion ~$80 ribu, turun ~80% dari puncak; total likuiditas pool ~$1,13 juta |
+| **Kualitas eksekusi** | Kuat | Atomic RFQ berfungsi sesuai desain; tidak ada bukti kegagalan slippage atau front-running |
+| **Orientasi pengguna** | Campuran | Bybit menghilangkan hambatan dompet, gas, dan modal minimum untuk akses sekunder — tidak ada minimum langganan, dan xStocks dilaporkan dapat ditarik ke self-custody. Gerbang Qualified Investor pada penerbitan primer tetap tidak tersentuh, dan adopsi on-chain belum mencerminkan hambatan yang sebenarnya telah dihilangkan |
+| **Komposabilitas** | Belum terkonfirmasi | Tidak ditemukan bukti publik penggunaan xStocks sebagai jaminan dalam protokol DeFi Mantle; analisis ini tidak dapat mengkonfirmasi status baik ke satu arah maupun lainnya |
+
+Satu pilar kuat, satu parsial, satu lemah, satu campuran, satu belum terkonfirmasi. Itu bukan arsitektur lima-dari-lima. Itu adalah fondasi nyata dengan celah nyata — yang lebih berguna untuk diketahui daripada "Mantle telah menyelesaikannya" atau "Mantle gagal."
+
+---
+
+## 4. Apa yang Dikatakan Riset Industri
+
+Sebuah laporan tahun 2026 dari Canton Network dan RWA.io mengidentifikasi fragmentasi pasar sebagai hambatan utama adopsi RWA, mencatat bahwa gesekan lintas-chain menciptakan perbedaan price discovery yang berarti dan biaya gesekan modal per transaksi. Laporan tersebut berargumen bahwa distribusi di berbagai jaringan yang tidak dapat berinteroperasi adalah pendorong utama fragmentasi yang saat ini membatasi pertumbuhan industri.
+
+Riset Yellow.com Juni 2026 membuat poin serupa, berargumen secara efektif bahwa infrastruktur penerbitan telah matang lebih cepat daripada infrastruktur pasar sekunder yang dapat mengimbanginya. Riset tersebut mendokumentasikan bahwa aset yang ditokenisasi di luar Treasuries diperdagangkan di pasar yang cukup tipis sehingga peningkatan likuiditas yang dijanjikan tokenisasi tidak terwujud dalam praktik.
+
+Sebuah makalah akademis yang diterbitkan di arXiv pada Agustus 2025, "Tokenize Everything, But Can You Sell It?", menemukan bahwa sebagian besar token RWA menunjukkan volume perdagangan rendah, periode penahanan panjang, dan partisipasi investor terbatas meskipun berpotensi untuk pasar global 24/7. Para penulis menyimpulkan bahwa mewujudkan potensi likuiditas RWA memerlukan kemajuan terkoordinasi di domain hukum, teknis, dan institusional.
+
+Kerangka akademis terpisah, "Beyond TVL," yang diterbitkan pada Mei 2026, mengembangkan metodologi penilaian risiko yang menunjukkan bagaimana TVL saja dapat mengaburkan risiko kritis dalam pasar aset yang ditokenisasi. Aset dengan profil TVL yang identik menunjukkan karakteristik likuiditas, konsentrasi, dan kualitas pasar yang sangat berbeda — memperkuat bahwa angka TVL utama adalah proksi yang tidak andal untuk kesehatan distribusi.
+
+Bukti di luar ekosistem Mantle menunjuk ke arah yang sama dengan data Mantle sendiri: distribusi, bukan tokenisasi, adalah kendala yang mengikat. Tidak satu pun pipeline telah menyelesaikannya.
+
+---
+
+## 5. Apa yang Dilakukan Mantle dengan Benar — Dan Apa yang Diungkapkannya
+
+### 5.1 Jembatan Bybit menyelesaikan lebih dari yang diberikan kredit pada draf pertama
+
+Elemen paling signifikan dari pipeline Mantle bukan tumpukan teknologi; melainkan keputusan untuk merutekan akses ritel melalui antarmuka bursa yang familiar daripada mengharuskan self-custody dari hari pertama. Dikoreksi untuk produk yang tepat, listing xStocks Bybit sebenarnya menghapus dua dari tiga hambatan historis dalam orientasi pengguna RWA: pengguna Bybit tidak memerlukan dompet, seed phrase, atau gas fee untuk mendapatkan eksposur ke SPCXx (hambatan kripto-native, terselesaikan), dan tidak ada ukuran minimum langganan di pasar sekunder (hambatan modal, terselesaikan untuk akses sekunder).
+
+Yang tidak terselesaikan adalah hambatan hukum satu tingkat di atasnya: aset yang mendasarinya tetap dibatasi untuk Qualified Investors untuk penerbitan dan penebusan primer, dan Bybit sendiri memilih untuk tidak melayani pengguna EEA sama sekali, meskipun ada prospektus yang secara hukum memungkinkannya. Pembingkaian ulang itu sebenarnya membuat angka on-chain lebih menarik, bukan kurang. Jika dua dari tiga hambatan klasik adopsi RWA ritel sudah diturunkan di sisi pipeline Bybit, dan SPCXx Mantle masih menunjukkan sekitar 20 hingga 24 pemegang tiga minggu kemudian, maka hambatan yang dihilangkan tampaknya bukan yang menahan distribusi. Ada sesuatu yang lain — penemuan, inersia, fakta bahwa penarikan self-custody adalah langkah sengaja ekstra yang hampir tidak pernah dilakukan sebagian besar pengguna bahkan ketika tersedia bagi mereka. Mencari tahu mana yang merupakan pertanyaan lebih berguna yang benar-benar diajukan oleh gambaran yang telah dikoreksi.
+
+### 5.2 Treasury bisa menyelesaikan masalah cold-start — jika digunakan dengan cara itu
+
+Treasury yang dimiliki komunitas Mantle, salah satu treasury yang dikelola DAO terbesar dalam kripto — dilaporkan sekitar $1,7 miliar per pertengahan 2026, turun dari puncak lebih dekat $2,4 miliar seiring pergerakan harga token — cukup besar untuk menyemai aset yang ditokenisasi baru dengan likuiditas awal yang dalam dari hari pertama, mengatasi masalah ayam-telur yang mematikan sebagian besar pool likuiditas baru. Itu adalah keunggulan struktural nyata yang dimiliki sedikit chain lain yang berfokus pada RWA. Yang kurang jelas dari data publik adalah apakah treasury sebenarnya sedang digunakan ke dalam pool likuiditas Fluxion hari ini, atau apakah itu duduk di aset lain sementara likuiditas total Fluxion sebesar $1,13 juta terlihat seperti itu. Jika yang terakhir, ini bukan keunggulan yang terselesaikan. Itu adalah keunggulan yang belum dimanfaatkan.
+
+### 5.3 Pipeline membuktikan apa yang dibutuhkan industri
+
+Dengan membangun keempat tahap — penerbitan, penyelesaian, eksekusi, distribusi — ke dalam satu pipeline terintegrasi, Mantle mendemonstrasikan bahwa distribusi memerlukan koordinasi di seluruh custody yang diregulasi, penyelesaian berbiaya rendah, eksekusi institusional, dan akses ritel. Fakta bahwa pipeline ini belum mencapai skala tidak membatalkan arsitektur. Itu mengkonfirmasi bahwa distribusi lebih sulit dari yang diakui siapa pun — dan, per koreksi di atas, lebih sulit bahkan setelah beberapa hambatan yang jelas sebenarnya dihilangkan.
+
+---
+
+## 6. Apa yang Akan Datang: Tiga Klaim yang Dapat Difalsifikasi
+
+Riset tanpa prediksi adalah pelaporan retrospektif. Tiga klaim berikut spesifik, dapat diperiksa, dan dapat difalsifikasi dalam dua belas bulan ke depan.
+
+### Klaim 1: Volume pasar sekunder, bukan TVL, akan menjadi metrik distribusi utama
+
+Jika industri RWA serius tentang distribusi, ia harus mengadopsi metrik yang mengukur modal dalam gerakan — volume perdagangan, dompet aktif, kecepatan, dan spread — daripada modal yang diam. Pada K4 2026, jika Messari atau RWA.xyz tidak melaporkan skor distribusi berbasis volume di samping TVL, industri ini mengukur hal yang salah.
+
+### Klaim 2: Jumlah pemegang Mantle akan memberi tahu kita hambatan mana yang penting
+
+Jumlah pemegang on-chain Mantle untuk ekuitas yang ditokenisasi akan mencapai 5.000+ per aset utama pada akhir 2026, atau model CeDeFi akan divalidasi sebagai saluran yang dapat digunakan ritel tetapi sebagian besar tidak digunakan — bukan yang secara teknis diblokir. Karena akses xStocks Bybit sudah mengizinkan penarikan self-custody, klaim ini benar-benar menanyakan apakah pengguna Bybit yang memperoleh eksposur SPCXx sebenarnya memindahkannya ke dompet self-custody dalam skala yang berarti, atau apakah kisah distribusi Mantle tetap menjadi kisah kepemilikan-di-bursa-terpusat dengan opsi on-chain yang sebagian besar tidak digunakan. Jumlah pemegang dalam enam bulan ke depan akan memberi tahu kita mana yang benar.
+
+### Klaim 3: Ekuitas DEX $1 miliar pertama akan ada di Solana
+
+Ekuitas yang ditokenisasi pertama yang mencapai $1 miliar dalam volume DEX kumulatif akan ada di Solana, bukan Mantle. Ini bukan prediksi bahwa Mantle kalah. Ini adalah prediksi bahwa volume DEX berbasis ritel dan tanpa izin — metrik yang paling langsung mengukur distribusi organik — mendukung chain dengan basis pengguna ritel yang paling dalam. Jika Mantle mencapai volume DEX $1 miliar pertama, itu berarti model CeDeFi mengatasi kelemahan akses ritel melalui kedalaman institusional. Hasil apa pun bermakna.
+
+---
+
+## 7. Kesenjangan Distribusi Adalah Peluang
+
+Industri tokenisasi telah menghabiskan tiga tahun terakhir membuktikan bahwa ia dapat menempatkan aset on-chain. Tiga tahun berikutnya akan menentukan apakah aset tersebut menemukan pengguna.
+
+Pipeline CeDeFi Mantle — Backed Assets untuk penerbitan, Mantle untuk penyelesaian, Fluxion untuk eksekusi, Bybit untuk distribusi — adalah salah satu pendekatan yang lebih lengkap secara arsitektur terhadap masalah ini di pasar saat ini. Itu juga, berdasarkan data on-chain-nya sendiri, tidak lengkap. Sekitar dua puluh pemegang ekuitas SpaceX yang ditokenisasi, di jaringan yang melaporkan $247,5 juta dalam RWA TVL, bukanlah kisah sukses distribusi. Itu adalah titik awal distribusi.
+
+Peluangnya bukan pada berpura-pura kesenjangan tidak ada. Melainkan pada membangun infrastruktur, metrik, dan insentif yang menutupnya. Pipeline Mantle menunjukkan bentuk solusi. Data menunjukkan seberapa jauh jarak yang masih tersisa antara bentuk itu dan hal yang seharusnya menjadi.
+
+Tokenisasi menjanjikan untuk menempatkan setiap aset dalam jangkauan siapa pun yang memiliki dompet. Saat ini, ia telah menempatkan segelintir aset dalam jangkauan qualified investors dengan enam digit untuk dikomitkan dan kesabaran untuk menunggu adopsi mengejar — sementara pintu ritel yang sebenarnya terbuka hampir tidak ada yang melewatinya. Menutup kesenjangan itu adalah pekerjaan yang sebenarnya. Semua yang lain telah menjadi bagian yang mudah.
+
+---
+
+## Referensi
+
+1. Mantle. "Q1 2026 and H1 2026 Ecosystem Report." mantle.xyz. Diakses 3 Jul 2026. <https://www.prnewswire.com/news-releases/mantle-posts-27-rwa-growth-in-q1-2026--reaching-247-5m-according-to-messari-302795234.html>
+2. RWA.xyz. "RWA Tokenization Dashboard." rwa.xyz. Diakses 3 Jul 2026. <https://app.rwa.xyz>
+3. Fluxion Network. "Protocol Metrics." fluxion.network. Diakses 3 Jul 2026. <https://fluxion.network>
+4. Yellow.com Research. "Secondary Market Infrastructure for RWAs." Jun 2026.
+5. Canton Network / RWA.io. "State of RWA Tokenization 2026." 2026.
+6. "Tokenize Everything, But Can You Sell It?" arXiv:2508.11651v1 (Agt 2025). <https://arxiv.org/html/2508.11651v1>
+7. "Beyond TVL: Risk Scoring for Tokenized Assets." arXiv:2605.29689 (Mei 2026). <https://arxiv.org/abs/2605.29689>
+8. Xangle Research. "Tokenized Equity Market Analysis." 2025.
+9. Backed Finance. "xStocks Documentation — Risk Factors, Prospectus, and Legal Structure." backedassets.com. Liechtenstein FMA prospectus filings. <https://assets.backed.fi>
+10. Bybit. "xStocks on Bybit — Terms and Conditions; FAQ; Help Center." bybit.com. Diakses 3 Jul 2026. <https://www.bybit.com>
+11. Pelaporan publik mengenai pengembalian dana SpaceX IPO Express Bybit dan Binance Juni 2026.
+
+---
+
+## Sanggahan
+
+> **Sanggahan**: Konten ini hanya untuk tujuan informasi dan riset. Konten ini tidak merupakan saran keuangan atau investasi. Ekuitas yang ditokenisasi melibatkan risiko pihak lawan, regulasi, dan pasar. Selalu lakukan due diligence Anda sendiri. Angka RWA.xyz dan on-chain adalah point-in-time (per akhir Juni–awal Juli 2026) dan dapat berubah. Verifikasi semua data terhadap sumber langsung sebelum pengajuan.
+
+---
+
+## Tentang Penulis
+
+<!-- Ganti dengan info kamu -->
+<!-- ![Author Name](/_next/image?url=AVATAR_URL&w=128&q=75) -->
+<!-- **Author Name** — [Bio singkat] -->
+<!-- View all articles → -->
