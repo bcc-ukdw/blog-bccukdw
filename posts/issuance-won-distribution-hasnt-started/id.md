@@ -7,7 +7,7 @@ authorAvatar: "https://github.com/Shenhan01-sys.png"
 category: "Blockchain"
 tags: ["rwa", "tokenisasi", "distribusi", "onchain-finance", "mantle", "defi"]
 excerpt: "Aset dunia nyata ter-tokenisasi sudah jadi pasar multi-miliar dolar, tapi angka headline mencampur aduk issuance dengan distribution. RWA terbesar di Bumi nggak bisa dipindah, kebanyakan token diam, dan distribution layer adalah satu-satunya moat yang nggak bisa dibeli. Catatan riset untuk Mantle Research Challenge."
-cover: https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/refs/heads/main/posts/issuance-won-distribution-hasnt-started/images/cover.jpg"
+cover: "https://raw.githubusercontent.com/bcc-ukdw/blog-bccukdw/refs/heads/main/posts/issuance-won-distribution-hasnt-started/images/cover.jpg"
 ---
 
 > Catatan riset tentang jurang antara penerbitan aset ter-tokenisasi dan distribusi global — dan kenapa distribution layer adalah satu-satunya moat yang nggak bisa dibeli. Submission untuk Mantle Research Challenge. Juli 2026.
