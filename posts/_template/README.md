@@ -1,8 +1,8 @@
-# Panduan Penulis — Blog BCC UKDW
+# Panduan Penulis Blog BCC UKDW
 
 Cara menulis artikel untuk [blog.bccukdw.xyz](https://blog.bccukdw.xyz). Baca sekali, lalu copy folder `_template/` jadi titik mulai.
 
-> 🤖 **Pakai AI assistant (Claude Code, Cursor, Codex, dll)?** AI-mu otomatis tau alur ini dari `CLAUDE.md` / `AGENTS.md` di root repo, plus skill terstruktur di [`.claude/skills/contribute-blog-post/`](../../.claude/skills/contribute-blog-post/SKILL.md). Cukup bilang *"bantu aku nulis & submit artikel blog BCC UKDW"* — sisanya (3 bahasa, URL gambar absolut, PR ke `main`) dia yang urus.
+> 🤖 **Pakai AI assistant (Claude Code, Cursor, Codex, dll)?** AI-mu otomatis tau alur ini dari `CLAUDE.md` / `AGENTS.md` di root repo, plus skill terstruktur di [`.claude/skills/contribute-blog-post/`](../../.claude/skills/contribute-blog-post/SKILL.md). Cukup bilang *"bantu aku nulis & submit artikel blog BCC UKDW"*, sisanya (3 bahasa, URL gambar absolut, PR ke `main`) dia yang urus.
 
 ---
 
@@ -23,7 +23,7 @@ posts/
 - Slug: huruf kecil semua, kata dipisah `-`, tanpa spasi/simbol. Contoh: `mengenal-smart-contract`.
 - URL hasilnya: `https://blog.bccukdw.xyz/nama-artikel-kamu`.
 - **Wajib bikin ketiga bahasa** (`id`, `en`, `cn`). Kalau salah satu bahasa belum ada, artikel tidak muncul di bahasa itu.
-- Slug yang diawali `_` (seperti `_template`) **diabaikan** sistem — aman buat contoh/draft.
+- Slug yang diawali `_` (seperti `_template`) **diabaikan** sistem, aman buat contoh/draft.
 
 ## 2. Bikin artikel baru (langkah)
 
@@ -31,7 +31,7 @@ posts/
 2. Isi frontmatter (lihat bagian 3) di **ketiga** file `id.mdx`, `en.mdx`, `cn.mdx`.
 3. Tulis isi pakai Markdown biasa.
 4. Hapus baris contoh yang tidak dipakai.
-5. Commit + push ke branch `main`. Live dalam ~1 jam (cache revalidate tiap 1 jam; halaman artikel tiap 24 jam).
+5. Commit + push ke branch `main`. Artikel baru muncul di daftar dalam ±2 menit; revisi artikel yang sudah ada tampil langsung.
 
 ## 3. Frontmatter
 
@@ -48,17 +48,17 @@ Blok di antara `---` paling atas. Semua nilai pakai tanda kutip `"..."`.
 | `tags`         | ✅     | `["solidity", "web3"]`                             | Array. Huruf kecil. |
 | `excerpt`      | ✅     | `"Ringkasan 1-2 kalimat."`                         | Tampil di kartu daftar + deskripsi SEO/share. |
 | `cover`        | ⬜     | `"https://images.unsplash.com/photo-xxx?w=1200"`  | Gambar hero + thumbnail share. **Host harus diizinkan** (lihat Gambar). Lebar ≥1200px. |
-| `readTime`     | ⬜     | `5`                                               | **Jangan diisi** — dihitung otomatis dari panjang teks. Isi hanya kalau mau override (angka, menit). |
+| `readTime`     | ⬜     | `5`                                               | **Jangan diisi**, dihitung otomatis dari panjang teks. Isi hanya kalau mau override (angka, menit). |
 
 > `excerpt`, `tags`, dan `cover` harus **diterjemahkan/disesuaikan** per bahasa juga, bukan cuma isi artikel.
 
-## 4. Gambar — BACA INI
+## 4. Gambar (BACA INI)
 
 Ini bagian yang paling sering salah.
 
 ### Aturan #1: gambar inline WAJIB pakai URL absolut
 
-Artikel dirender di domain blog (`blog.bccukdw.xyz`), **bukan** di repo ini. Jadi **path relatif tidak akan jalan** — gambar muncul rusak.
+Artikel dirender di domain blog (`blog.bccukdw.xyz`), **bukan** di repo ini. Jadi **path relatif tidak akan jalan**, gambar muncul rusak.
 
 ❌ **Salah** (path relatif / lokal):
 ```markdown
@@ -86,11 +86,11 @@ Taruh gambar di `posts/<slug>/images/`, commit bareng artikelnya. Begitu ke-push
 - `i.imgur.com`
 - `bccukdw.xyz` / `www.bccukdw.xyz`
 
-> Gambar **inline** (`![](...)`) tidak lewat next/image, jadi sebenarnya bebas host — tapi tetap **selalu pakai URL absolut**. Demi konsisten & awet, simpan saja di `images/` repo ini.
+> Gambar **inline** (`![](...)`) tidak lewat next/image, jadi sebenarnya bebas host, tapi tetap **selalu pakai URL absolut**. Demi konsisten & awet, simpan saja di `images/` repo ini.
 
 ### Tips gambar
 - `cover`: rasio landscape, lebar ≥1200px (dipakai sebagai hero lebar penuh + preview share).
-- Selalu isi **alt text** yang deskriptif di `![alt text](...)` — buat aksesibilitas & SEO.
+- Selalu isi **alt text** yang deskriptif di `![alt text](...)` untuk aksesibilitas & SEO.
 - Kompres gambar sebelum commit (mis. [squoosh.app](https://squoosh.app)) biar repo tidak berat.
 
 ## 5. Markdown yang didukung
@@ -103,4 +103,4 @@ contract Hello { }
 ```
 ````
 
-Heading (`##`, `###`) otomatis dapat anchor link — pakai itu untuk struktur, jangan `#` (H1 dipakai judul).
+Heading (`##`, `###`) otomatis dapat anchor link, pakai itu untuk struktur, jangan `#` (H1 dipakai judul).
